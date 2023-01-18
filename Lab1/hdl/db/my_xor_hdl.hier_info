@@ -1,0 +1,6 @@
+|my_xor_hdl
+BUTTON[0] => LEDG.IN0
+BUTTON[1] => LEDG.IN1
+LEDG[0] << LEDG.DB_MAX_OUTPUT_PORT_TYPE
+
+
