@@ -1,0 +1,114 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus II 64-Bit"
+// VERSION "Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
+
+// DATE "01/19/2023 16:29:13"
+
+// 
+// Device: Altera EP3C16F484C6 Package FBGA484
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module lab3 (
+	CLOCK_50_2,
+	SW,
+	BUTTON,
+	LEDG);
+input 	CLOCK_50_2;
+input 	[0:0] SW;
+input 	[0:0] BUTTON;
+output 	[0:0] LEDG;
+
+// Design Ports Information
+// CLOCK_50_2	=>  Location: PIN_E3,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// SW[0]	=>  Location: PIN_G18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// BUTTON[0]	=>  Location: PIN_P8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// LEDG[0]	=>  Location: PIN_G5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+// synopsys translate_off
+initial $sdf_annotate("lab3_6_1200mv_85c_v_slow.sdo");
+// synopsys translate_on
+
+wire \CLOCK_50_2~input_o ;
+wire \SW[0]~input_o ;
+wire \BUTTON[0]~input_o ;
+wire \LEDG[0]~output_o ;
+
+
+// Location: IOOBUF_X0_Y27_N23
+cycloneiii_io_obuf \LEDG[0]~output (
+	.i(gnd),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\LEDG[0]~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \LEDG[0]~output .bus_hold = "false";
+defparam \LEDG[0]~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y26_N8
+cycloneiii_io_ibuf \CLOCK_50_2~input (
+	.i(CLOCK_50_2),
+	.ibar(gnd),
+	.o(\CLOCK_50_2~input_o ));
+// synopsys translate_off
+defparam \CLOCK_50_2~input .bus_hold = "false";
+defparam \CLOCK_50_2~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X41_Y25_N8
+cycloneiii_io_ibuf \SW[0]~input (
+	.i(SW[0]),
+	.ibar(gnd),
+	.o(\SW[0]~input_o ));
+// synopsys translate_off
+defparam \SW[0]~input .bus_hold = "false";
+defparam \SW[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y2_N15
+cycloneiii_io_ibuf \BUTTON[0]~input (
+	.i(BUTTON[0]),
+	.ibar(gnd),
+	.o(\BUTTON[0]~input_o ));
+// synopsys translate_off
+defparam \BUTTON[0]~input .bus_hold = "false";
+defparam \BUTTON[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+assign LEDG[0] = \LEDG[0]~output_o ;
+
+endmodule

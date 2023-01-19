@@ -1,0 +1,25 @@
+|lab3
+CLOCK_50_2 => CLOCK_50_2.IN1
+SW[0] => SW[0].IN1
+BUTTON[0] => BUTTON[0].IN1
+pobe_reg[0] <= <GND>
+pobe_reg[1] <= <GND>
+pobe_reg[2] <= <GND>
+
+
+|lab3|FSM:i_fsm
+clk => ~NO_FANOUT~
+rst => ~NO_FANOUT~
+inputKey => state.001_283.LATCH_ENABLE
+inputKey => state.010_267.LATCH_ENABLE
+inputKey => state.011_251.LATCH_ENABLE
+inputKey => state.100_235.LATCH_ENABLE
+inputKey => state.101_219.LATCH_ENABLE
+inputKey => state.110_203.LATCH_ENABLE
+inputKey => state.111_187.LATCH_ENABLE
+inputKey => state.000_299.LATCH_ENABLE
+outputdata[0] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+outputdata[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+outputdata[2] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
