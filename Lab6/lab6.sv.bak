@@ -1,0 +1,27 @@
+module lab6(
+    input			 CLOCK_50_2,
+    input      [9:0] SW,
+    output reg [9:0] LEDG
+);
+	wire flag;
+	clkCounter i_clkCounter(
+		.clk		(CLOCK_50_2),
+		.EN			(1),
+		.rst		(0),
+		.target		(20000000),
+		.flag		(flag)
+	);
+
+	always @(posedge CLOCK_50_2) begin
+		LEDG = 10'b1;
+		if (SW[9] == 1) begin
+			LEDG = 10'b0;
+		end
+		else if (SW[0] == 0) begin
+			if (flag) LEDG = LEDG << 1;
+		end
+		else if (sw[0] == 1) begin
+			if (flag) LEDG = LEDG >> 1;
+		end
+	end
+endmodule
