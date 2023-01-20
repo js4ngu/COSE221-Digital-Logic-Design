@@ -4,78 +4,78 @@ K3
 cModel Technology
 Z0 dC:\File\Lec\undergraduate\COSE221-Digital-Logic-Design\Lab3\simulation\qsim
 vlab3
-Z1 !s100 JR5leQHf?SnVPj_L_UPdY3
-Z2 IZR?NC6[a:o_H5jo09clK=3
-Z3 V[DOmkUE>nb5b1^^TLm@@L2
-Z4 dC:\File\Lec\undergraduate\COSE221-Digital-Logic-Design\Lab3\simulation\qsim
-Z5 w1674195102
-Z6 8lab3.vo
-Z7 Flab3.vo
+Z1 ILjZQ8=7Vo1cb=WTB[DeP80
+Z2 V[DOmkUE>nb5b1^^TLm@@L2
+Z3 dC:\File\Lec\undergraduate\COSE221-Digital-Logic-Design\Lab3\simulation\qsim
+Z4 w1674195319
+Z5 8lab3.vo
+Z6 Flab3.vo
 L0 31
-Z8 OV;L;10.1d;51
+Z7 OV;L;10.1d;51
 r1
 31
-Z9 !s90 -work|work|lab3.vo|
-Z10 o-work work -O0
+Z8 !s90 -work|work|lab3.vo|
+Z9 o-work work -O0
 !i10b 1
+Z10 !s100 33gT8deTCPz9LU1nC5G:21
 !s85 0
-Z11 !s108 1674195102.581000
+Z11 !s108 1674195319.531000
 Z12 !s107 lab3.vo|
 !s101 -O0
 vlab3_vlg_check_tst
 !i10b 1
-!s100 AM3=n]4i]MCWLG4@Ajng?0
-ITbnOWZgV9S0az<f7D8[BE3
-Z13 VVdT`F7iQOJFF5`?C[dAPN1
-R4
-Z14 w1674195101
-Z15 8sim.vwf.vt
-Z16 Fsim.vwf.vt
+Z13 !s100 AM3=n]4i]MCWLG4@Ajng?0
+Z14 ITbnOWZgV9S0az<f7D8[BE3
+Z15 VVdT`F7iQOJFF5`?C[dAPN1
+R3
+Z16 w1674195318
+Z17 8sim.vwf.vt
+Z18 Fsim.vwf.vt
 L0 61
-R8
+R7
 r1
 !s85 0
 31
-Z17 !s108 1674195102.617000
-Z18 !s107 sim.vwf.vt|
-Z19 !s90 -work|work|sim.vwf.vt|
+Z19 !s108 1674195319.559000
+Z20 !s107 sim.vwf.vt|
+Z21 !s90 -work|work|sim.vwf.vt|
 !s101 -O0
-R10
+R9
 vlab3_vlg_sample_tst
 !i10b 1
-!s100 W6Xd=bQNHEj^AD:P7kzO^2
-IKhN7_Q]QW40SU<4b181NL1
-Z20 V]lQ_79jAZ[C:2JAWAD>lB0
-R4
-R14
-R15
+Z22 !s100 W6Xd=bQNHEj^AD:P7kzO^2
+Z23 IKhN7_Q]QW40SU<4b181NL1
+Z24 V]lQ_79jAZ[C:2JAWAD>lB0
+R3
 R16
+R17
+R18
 L0 29
-R8
+R7
 r1
 !s85 0
 31
-R17
-R18
 R19
+R20
+R21
 !s101 -O0
-R10
+R9
 vlab3_vlg_vec_tst
 !i10b 1
-!s100 OXiCnc^R4h7:[`bnXe=f13
-I@DJG2Mi^9eV:>k@Y0^eQO2
-Z21 Vm>TFY<<QB3WBRa>cCKI@j1
-R4
-R14
-R15
+Z25 !s100 OXiCnc^R4h7:[`bnXe=f13
+Z26 I@DJG2Mi^9eV:>k@Y0^eQO2
+Z27 Vm>TFY<<QB3WBRa>cCKI@j1
+R3
 R16
-Z22 L0 352
-R8
+R17
+R18
+Z28 L0 352
+R7
 r1
 !s85 0
 31
-R17
-R18
 R19
+R20
+R21
 !s101 -O0
-R10
+R9

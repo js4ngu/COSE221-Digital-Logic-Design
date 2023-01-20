@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab3
-Fri Jan 20 15:10:13 2023
+Fri Jan 20 15:14:26 2023
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -16,10 +16,11 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
   8. State Machine - |lab3|FSM:i_fsm|state
   9. Registers Removed During Synthesis
  10. General Register Statistics
- 11. Port Connectivity Checks: "FSM:i_fsm"
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
- 14. Analysis & Synthesis Suppressed Messages
+ 11. Port Connectivity Checks: "SEG:i_seg"
+ 12. Port Connectivity Checks: "FSM:i_fsm"
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
+ 15. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -45,13 +46,13 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jan 20 15:10:13 2023      ;
+; Analysis & Synthesis Status        ; Successful - Fri Jan 20 15:14:26 2023      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; lab3                                       ;
 ; Top-level Entity Name              ; lab3                                       ;
 ; Family                             ; Cyclone III                                ;
-; Total logic elements               ; 15                                         ;
-;     Total combinational functions  ; 14                                         ;
+; Total logic elements               ; 22                                         ;
+;     Total combinational functions  ; 21                                         ;
 ;     Dedicated logic registers      ; 13                                         ;
 ; Total registers                    ; 13                                         ;
 ; Total pins                         ; 14                                         ;
@@ -167,6 +168,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------+------------------------------------------------------------------------+---------+
 ; pulseKey.v                       ; yes             ; User Verilog HDL File  ; C:/File/Lec/undergraduate/COSE221-Digital-Logic-Design/Lab3/pulseKey.v ;         ;
 ; lab3.v                           ; yes             ; User Verilog HDL File  ; C:/File/Lec/undergraduate/COSE221-Digital-Logic-Design/Lab3/lab3.v     ;         ;
+; 7SEG.v                           ; yes             ; User Verilog HDL File  ; C:/File/Lec/undergraduate/COSE221-Digital-Logic-Design/Lab3/7SEG.v     ;         ;
 +----------------------------------+-----------------+------------------------+------------------------------------------------------------------------+---------+
 
 
@@ -175,16 +177,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+------------------+
 ; Resource                                    ; Usage            ;
 +---------------------------------------------+------------------+
-; Estimated Total logic elements              ; 15               ;
+; Estimated Total logic elements              ; 22               ;
 ;                                             ;                  ;
-; Total combinational functions               ; 14               ;
+; Total combinational functions               ; 21               ;
 ; Logic element usage by number of LUT inputs ;                  ;
 ;     -- 4 input functions                    ; 9                ;
-;     -- 3 input functions                    ; 3                ;
+;     -- 3 input functions                    ; 10               ;
 ;     -- <=2 input functions                  ; 2                ;
 ;                                             ;                  ;
 ; Logic elements by mode                      ;                  ;
-;     -- normal mode                          ; 14               ;
+;     -- normal mode                          ; 21               ;
 ;     -- arithmetic mode                      ; 0                ;
 ;                                             ;                  ;
 ; Total registers                             ; 13               ;
@@ -195,8 +197,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Embedded Multiplier 9-bit elements          ; 0                ;
 ; Maximum fan-out node                        ; CLOCK_50_2~input ;
 ; Maximum fan-out                             ; 13               ;
-; Total fan-out                               ; 95               ;
-; Average fan-out                             ; 1.73             ;
+; Total fan-out                               ; 123              ;
+; Average fan-out                             ; 1.98             ;
 +---------------------------------------------+------------------+
 
 
@@ -205,8 +207,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name       ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------+--------------+
-; |lab3                      ; 14 (0)            ; 13 (0)       ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |lab3                     ; work         ;
+; |lab3                      ; 21 (0)            ; 13 (0)       ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |lab3                     ; work         ;
 ;    |FSM:i_fsm|             ; 13 (13)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lab3|FSM:i_fsm           ; work         ;
+;    |SEG:i_seg|             ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lab3|SEG:i_seg           ; work         ;
 ;    |pulseKey:i_pulseKey|   ; 1 (1)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lab3|pulseKey:i_pulseKey ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -256,6 +259,20 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 
 
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "SEG:i_seg"                                                                                                                                                                              ;
++-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                                                                                            ;
++-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; HEX       ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (3 bits) it drives.  The 29 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; HEX[2..1] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; HEX[0]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; HEX0_D    ; Output ; Info     ; Explicitly unconnected                                                                                                                                                             ;
+; HEX2_D    ; Output ; Info     ; Explicitly unconnected                                                                                                                                                             ;
+; HEX3_D    ; Output ; Info     ; Explicitly unconnected                                                                                                                                                             ;
++-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "FSM:i_fsm"                                                                                                                                                                  ;
 +------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -280,7 +297,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Fri Jan 20 15:10:12 2023
+    Info: Processing started: Fri Jan 20 15:14:25 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab3 -c lab3
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file pulsekey.v
@@ -292,30 +309,70 @@ Info (12021): Found 1 design units, including 1 entities, in source file 7seg.v
     Info (12023): Found entity 1: SEG
 Info (12127): Elaborating entity "lab3" for the top level hierarchy
 Warning (10230): Verilog HDL assignment warning at lab3.v(26): truncated value with size 4 to match size of target (3)
-Warning (10034): Output port "HEX1_D" at lab3.v(8) has no driver
 Info (12128): Elaborating entity "pulseKey" for hierarchy "pulseKey:i_pulseKey"
 Info (12128): Elaborating entity "FSM" for hierarchy "FSM:i_fsm"
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX1_D[0]" is stuck at GND
-    Warning (13410): Pin "HEX1_D[1]" is stuck at GND
-    Warning (13410): Pin "HEX1_D[2]" is stuck at GND
-    Warning (13410): Pin "HEX1_D[3]" is stuck at GND
-    Warning (13410): Pin "HEX1_D[4]" is stuck at GND
-    Warning (13410): Pin "HEX1_D[5]" is stuck at GND
-    Warning (13410): Pin "HEX1_D[6]" is stuck at GND
+Info (12128): Elaborating entity "SEG" for hierarchy "SEG:i_seg"
+Warning (10235): Verilog HDL Always Construct warning at 7SEG.v(33): variable "num" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at 7SEG.v(56): variable "num" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at 7SEG.v(79): variable "num" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at 7SEG.v(102): variable "num" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10270): Verilog HDL Case Statement warning at 7SEG.v(28): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at 7SEG.v(27): inferring latch(es) for variable "HEX0_D", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at 7SEG.v(27): inferring latch(es) for variable "HEX1_D", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at 7SEG.v(27): inferring latch(es) for variable "HEX2_D", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at 7SEG.v(27): inferring latch(es) for variable "HEX3_D", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "HEX3_D[0]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX3_D[1]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX3_D[2]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX3_D[3]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX3_D[4]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX3_D[5]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX3_D[6]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX2_D[0]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX2_D[1]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX2_D[2]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX2_D[3]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX2_D[4]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX2_D[5]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX2_D[6]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX1_D[0]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX1_D[1]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX1_D[2]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX1_D[3]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX1_D[4]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX1_D[5]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX1_D[6]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX0_D[0]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX0_D[1]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX0_D[2]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX0_D[3]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX0_D[4]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX0_D[5]" at 7SEG.v(27)
+Info (10041): Inferred latch for "HEX0_D[6]" at 7SEG.v(27)
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "out[3]" is missing source, defaulting to GND
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "out[3]" is missing source, defaulting to GND
+Warning (14026): LATCH primitive "SEG:i_seg|HEX1_D[0]" is permanently enabled
+Warning (14026): LATCH primitive "SEG:i_seg|HEX1_D[1]" is permanently enabled
+Warning (14026): LATCH primitive "SEG:i_seg|HEX1_D[2]" is permanently enabled
+Warning (14026): LATCH primitive "SEG:i_seg|HEX1_D[3]" is permanently enabled
+Warning (14026): LATCH primitive "SEG:i_seg|HEX1_D[4]" is permanently enabled
+Warning (14026): LATCH primitive "SEG:i_seg|HEX1_D[5]" is permanently enabled
+Warning (14026): LATCH primitive "SEG:i_seg|HEX1_D[6]" is permanently enabled
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 3 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/File/Lec/undergraduate/COSE221-Digital-Logic-Design/Lab3/output_files/lab3.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 29 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 36 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 11 output pins
-    Info (21061): Implemented 15 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 12 warnings
+    Info (21061): Implemented 22 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 23 warnings
     Info: Peak virtual memory: 4620 megabytes
-    Info: Processing ended: Fri Jan 20 15:10:13 2023
+    Info: Processing ended: Fri Jan 20 15:14:26 2023
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

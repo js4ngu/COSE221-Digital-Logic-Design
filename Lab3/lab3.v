@@ -24,7 +24,7 @@ module lab3(
         .outputdata (out)
     );
     assign OUT = out;
-/*
+
     SEG i_seg(
         .HEX        (1),
         .num        (out),
@@ -32,8 +32,7 @@ module lab3(
         .HEX1_D     (HEX1_D),
         .HEX2_D     (),
         .HEX3_D     ()
-    );    
-*/
+    );
 endmodule
 
 
