@@ -1,0 +1,38 @@
+module lab4(
+    input      [9:0] SW,
+    output reg [6:0] HEX1_D
+    );
+
+    always @(*) begin
+        if      (SW[0] == 1) HEX1_D = `DISPLAY_0;
+        else if (SW[1] == 1) HEX1_D = `DISPLAY_1;
+        else if (SW[2] == 1) HEX1_D = `DISPLAY_2;
+        else if (SW[3] == 1) HEX1_D = `DISPLAY_3;
+        else if (SW[4] == 1) HEX1_D = `DISPLAY_4;
+        else if (SW[5] == 1) HEX1_D = `DISPLAY_5;
+        else if (SW[6] == 1) HEX1_D = `DISPLAY_6;
+        else if (SW[7] == 1) HEX1_D = `DISPLAY_7;
+        else if (SW[8] == 1) HEX1_D = `DISPLAY_8;
+        else if (SW[9] == 1) HEX1_D = `DISPLAY_9;
+        else HEX1_D = `DISPLAY_OFF;
+    end
+endmodule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

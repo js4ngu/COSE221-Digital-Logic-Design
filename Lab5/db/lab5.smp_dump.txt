@@ -1,0 +1,6 @@
+
+State Machine - |lab5|FSM:i_fsm|mode
+Name mode.modeINPUT mode.modeCHARGE mode.modeCOFFE 
+mode.modeINPUT 0 0 0 
+mode.modeCOFFE 1 0 1 
+mode.modeCHARGE 1 1 0 
