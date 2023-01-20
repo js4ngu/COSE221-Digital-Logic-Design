@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab4
-Thu Jan 19 17:55:33 2023
+Fri Jan 20 15:21:47 2023
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -42,7 +42,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jan 19 17:55:33 2023      ;
+; Analysis & Synthesis Status        ; Successful - Fri Jan 20 15:21:47 2023      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; lab4                                       ;
 ; Top-level Entity Name              ; lab4                                       ;
@@ -189,7 +189,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                                             ;             ;
 ; I/O pins                                    ; 17          ;
 ; Embedded Multiplier 9-bit elements          ; 0           ;
-; Maximum fan-out node                        ; SW[8]~input ;
+; Maximum fan-out node                        ; SW[1]~input ;
 ; Maximum fan-out                             ; 7           ;
 ; Total fan-out                               ; 85          ;
 ; Average fan-out                             ; 1.67        ;
@@ -246,7 +246,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Thu Jan 19 17:55:32 2023
+    Info: Processing started: Fri Jan 20 15:21:46 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab4 -c lab4
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file lab4.v
@@ -260,8 +260,8 @@ Info (21057): Implemented 34 device resources after synthesis - the final resour
     Info (21059): Implemented 7 output pins
     Info (21061): Implemented 17 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4620 megabytes
-    Info: Processing ended: Thu Jan 19 17:55:33 2023
+    Info: Peak virtual memory: 4619 megabytes
+    Info: Processing ended: Fri Jan 20 15:21:47 2023
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
