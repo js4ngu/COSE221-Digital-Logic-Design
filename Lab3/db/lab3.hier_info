@@ -1,25 +1,64 @@
 |lab3
-CLOCK_50_2 => CLOCK_50_2.IN1
-SW[0] => SW[0].IN1
+CLOCK_50_2 => CLOCK_50_2.IN2
+SW[0] => SW[0].IN2
 BUTTON[0] => BUTTON[0].IN1
-pobe_reg[0] <= <GND>
-pobe_reg[1] <= <GND>
-pobe_reg[2] <= <GND>
+OUT[0] <= FSM:i_fsm.outputdata
+OUT[1] <= FSM:i_fsm.outputdata
+OUT[2] <= FSM:i_fsm.outputdata
+KEYPULSE <= keyPulse.DB_MAX_OUTPUT_PORT_TYPE
+HEX1_D[0] <= <GND>
+HEX1_D[1] <= <GND>
+HEX1_D[2] <= <GND>
+HEX1_D[3] <= <GND>
+HEX1_D[4] <= <GND>
+HEX1_D[5] <= <GND>
+HEX1_D[6] <= <GND>
+
+
+|lab3|pulseKey:i_pulseKey
+btn => keyPulse.IN1
+btn => q_DFF.DATAIN
+clk => keyPulse~reg0.CLK
+clk => q_DFF.CLK
+reset => keyPulse~reg0.ACLR
+reset => q_DFF.ACLR
+keyPulse <= keyPulse~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |lab3|FSM:i_fsm
-clk => ~NO_FANOUT~
-rst => ~NO_FANOUT~
-inputKey => state.001_283.LATCH_ENABLE
-inputKey => state.010_267.LATCH_ENABLE
-inputKey => state.011_251.LATCH_ENABLE
-inputKey => state.100_235.LATCH_ENABLE
-inputKey => state.101_219.LATCH_ENABLE
-inputKey => state.110_203.LATCH_ENABLE
-inputKey => state.111_187.LATCH_ENABLE
-inputKey => state.000_299.LATCH_ENABLE
-outputdata[0] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
-outputdata[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
-outputdata[2] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+clk => outputdata[0]~reg0.CLK
+clk => outputdata[1]~reg0.CLK
+clk => outputdata[2]~reg0.CLK
+clk => state~9.DATAIN
+rst => state.OUTPUTSELECT
+rst => state.OUTPUTSELECT
+rst => state.OUTPUTSELECT
+rst => state.OUTPUTSELECT
+rst => state.OUTPUTSELECT
+rst => state.OUTPUTSELECT
+rst => state.OUTPUTSELECT
+rst => state.OUTPUTSELECT
+rst => outputdata.OUTPUTSELECT
+rst => outputdata.OUTPUTSELECT
+rst => outputdata.OUTPUTSELECT
+inputKey => state.OUTPUTSELECT
+inputKey => state.OUTPUTSELECT
+inputKey => state.OUTPUTSELECT
+inputKey => state.OUTPUTSELECT
+inputKey => state.OUTPUTSELECT
+inputKey => state.OUTPUTSELECT
+inputKey => state.OUTPUTSELECT
+inputKey => state.OUTPUTSELECT
+inputKey => state.OUTPUTSELECT
+inputKey => state.OUTPUTSELECT
+inputKey => state.OUTPUTSELECT
+inputKey => state.OUTPUTSELECT
+inputKey => state.OUTPUTSELECT
+inputKey => state.OUTPUTSELECT
+inputKey => state.OUTPUTSELECT
+inputKey => state.OUTPUTSELECT
+outputdata[0] <= outputdata[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outputdata[1] <= outputdata[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+outputdata[2] <= outputdata[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

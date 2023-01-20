@@ -1,1 +1,2 @@
-Warning (10268): Verilog HDL information at lab3.v(57): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at lab3.v(6): object "KEYPULSE" differs only in case from object "keyPulse" in the same scope
+Info (10281): Verilog HDL Declaration information at lab3.v(5): object "OUT" differs only in case from object "out" in the same scope
