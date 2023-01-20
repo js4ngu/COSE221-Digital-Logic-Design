@@ -26,6 +26,9 @@
 # Loading work.lab6_vlg_sample_tst
 # Loading work.lab6_vlg_check_tst
 # Loading altera_ver.PRIM_GDFF_LOW
-# Simulation passed !
+# ERROR! Vector Mismatch for output port LEDG[0] :: @time = 500.000 ps
+#      Expected value = 0000000000
+#      Real value = 0000000001
+#           1 mismatched vectors : Simulation failed !
 # ** Note: $finish    : Waveform.vwf.vt(922)
 #    Time: 1 us  Iteration: 0  Instance: /lab6_vlg_vec_tst/tb_out

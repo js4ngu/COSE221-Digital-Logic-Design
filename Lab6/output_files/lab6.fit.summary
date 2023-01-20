@@ -1,4 +1,4 @@
-Fitter Status : Successful - Fri Jan 20 18:21:17 2023
+Fitter Status : Successful - Fri Jan 20 18:37:46 2023
 Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
 Revision Name : lab6
 Top-level Entity Name : lab6
@@ -6,9 +6,9 @@ Family : Cyclone III
 Device : EP3C16F484C6
 Timing Models : Final
 Total logic elements : 44 / 15,408 ( < 1 % )
-    Total combinational functions : 42 / 15,408 ( < 1 % )
-    Dedicated logic registers : 33 / 15,408 ( < 1 % )
-Total registers : 33
+    Total combinational functions : 44 / 15,408 ( < 1 % )
+    Dedicated logic registers : 34 / 15,408 ( < 1 % )
+Total registers : 34
 Total pins : 54 / 347 ( 16 % )
 Total virtual pins : 0
 Total memory bits : 0 / 516,096 ( 0 % )
