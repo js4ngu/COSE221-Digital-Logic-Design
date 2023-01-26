@@ -1,0 +1,103 @@
+`define Timeset_mode   2'b00
+`define Timecount_mode 2'b01
+`define Alarmset_mode  2'b10
+`define Alarm_mode     2'b11
+
+module lab7(
+    input				CLOCK_50_2,
+    input      [9:0]	SW,
+    output          	presclaerFlag,
+
+	output reg [8:0]	smallSec,
+	output reg [8:0]	sec,
+	output reg [8:0]	min,
+
+    output     [9:0]    LEDG
+);
+//	parameter target = 5000000;
+	parameter target = 2;
+	reg [1:0] FSM_flag = Timecount_mode;
+	reg [8:0] set_smallSec, set_sec, set_min;
+
+	presclaer i_presclaer(
+		.CLK			(CLOCK_50_2),
+		.rst			(SW[9]),
+		.target			(target),
+		.cnt			(cnt),
+		.presclaerFlag	(presclaerFlag),
+		.preCLK			(preCLK)
+	);
+
+	//FSM
+	always @(posedge CLOCK_50_2) begin
+		if (SW[9] == 1) FSM_flag = Timeset_mode;
+		else if (SW[8] == 1) FSM_flag = Alarmset_mode;
+		else if (Alarm_flag == 1) FSM_flag = Alarm_mode;
+		else FSM_flag = Timecount_mode;
+	end
+
+	// Alarm mode check logic
+	always @(posedge CLOCK_50_2) begin
+		if(	(set_smallSec == smallSec) &&
+			(set_sec == sec) &&
+			(set_min == min)
+		) begin
+			Alarm_flag = 1;
+		end
+		else Alarm_flag = 0;
+	end
+
+	//Timecount_mode
+	always @(posedge CLOCK_50_2) begin
+		if (presclaerFlag == 1) smallSec <= smallSec + 1;
+		if (smallSec >= 10) begin
+			smallSec <= 0;
+			sec <= sec + 1;
+		end
+		//sec
+		if (sec >= 60) begin
+			sec <= 0;
+			sec <= sec + 1;
+		end
+		//min
+		if (sec >= 10) begin
+			sec <= 0;
+		end
+	end
+endmodule	
+
+
+
+
+/*
+module Timecount (
+	input 				clk,
+	input 				presclaerFlag,
+	input  reg [7:0]	set_sec,
+	input  reg [7:0]	set_min,
+	output reg [7:0] 	current_smallSec,
+	output reg [7:0]	current_sec,
+	output reg [7:0]	current_min
+);
+	current_sec = set_sec;
+	current_min = set_min;
+
+	always @(posedge clk) begin
+		//0.1 sec
+		if (presclaerFlag == 1) current_smallSec <= current_smallSec + 1;
+		if (current_smallSec >= 10) begin
+			current_smallSec <= 0;
+			current_sec <= current_sec + 1;
+		end
+		//sec
+		if (current_sec >= 60) begin
+			current_sec <= 0;
+			current_min <= current_min + 1;
+		end
+		//min
+		if (current_min >= 10) begin
+			current_min <= 0;
+		end
+		end
+endmodule
+*/

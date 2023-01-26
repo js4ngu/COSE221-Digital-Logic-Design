@@ -1,0 +1,7 @@
+
+State Machine - |lab7|FSM_flag
+Name FSM_flag.11 FSM_flag.10 FSM_flag.01 FSM_flag.00 
+FSM_flag.00 0 0 0 0 
+FSM_flag.01 0 0 1 1 
+FSM_flag.10 0 1 0 1 
+FSM_flag.11 1 0 0 1 

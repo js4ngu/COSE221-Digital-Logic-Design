@@ -1,0 +1,123 @@
+`define DISPLAY_0     7'b1000000
+`define DISPLAY_1     7'b1111001
+`define DISPLAY_2     7'b0100100
+`define DISPLAY_3     7'b0110000
+`define DISPLAY_4     7'b0011001
+`define DISPLAY_5     7'b0010010
+`define DISPLAY_6     7'b0000010
+`define DISPLAY_7     7'b1111000
+`define DISPLAY_8     7'b0000000
+`define DISPLAY_9     7'b0010000
+`define DISPLAY_A     7'b0001000
+`define DISPLAY_b     7'b0000011
+`define DISPLAY_C     7'b1000110
+`define DISPLAY_d     7'b0100001
+`define DISPLAY_E     7'b0000110
+`define DISPLAY_F     7'b0001110
+`define DISPLAY_OFF   7'b1111111
+
+module SEG(
+    input      [2:0] HEX,
+    input      [3:0] num,
+    output reg [6:0] HEX0_D,
+    output reg [6:0] HEX1_D,
+    output reg [6:0] HEX2_D,
+    output reg [6:0] HEX3_D
+);
+    always @(HEX) begin
+        case(HEX)
+        0 : begin
+            HEX1_D = `DISPLAY_OFF;
+            HEX2_D = `DISPLAY_OFF;
+            HEX3_D = `DISPLAY_OFF;
+            case(num[3:0])
+            4'h0 : HEX0_D = `DISPLAY_0;
+            4'h1 : HEX0_D = `DISPLAY_1;
+            4'h2 : HEX0_D = `DISPLAY_2;
+            4'h3 : HEX0_D = `DISPLAY_3;
+            4'h4 : HEX0_D = `DISPLAY_4;
+            4'h5 : HEX0_D = `DISPLAY_5;
+            4'h6 : HEX0_D = `DISPLAY_6;
+            4'h7 : HEX0_D = `DISPLAY_7;
+            4'h8 : HEX0_D = `DISPLAY_8;
+            4'h9 : HEX0_D = `DISPLAY_9;
+            4'hA : HEX0_D = `DISPLAY_A;
+            4'hB : HEX0_D = `DISPLAY_b;
+            4'hC : HEX0_D = `DISPLAY_C;
+            4'hD : HEX0_D = `DISPLAY_d;
+            4'hE : HEX0_D = `DISPLAY_E;
+            4'hF : HEX0_D = `DISPLAY_F;
+            endcase 
+        end
+        1 : begin
+            HEX0_D = `DISPLAY_OFF;
+            HEX2_D = `DISPLAY_OFF;
+            HEX3_D = `DISPLAY_OFF;
+            case(num[3:0])
+            4'h0 : HEX1_D = `DISPLAY_0;
+            4'h1 : HEX1_D = `DISPLAY_1;
+            4'h2 : HEX1_D = `DISPLAY_2;
+            4'h3 : HEX1_D = `DISPLAY_3;
+            4'h4 : HEX1_D = `DISPLAY_4;
+            4'h5 : HEX1_D = `DISPLAY_5;
+            4'h6 : HEX1_D = `DISPLAY_6;
+            4'h7 : HEX1_D = `DISPLAY_7;
+            4'h8 : HEX1_D = `DISPLAY_8;
+            4'h9 : HEX1_D = `DISPLAY_9;
+            4'hA : HEX1_D = `DISPLAY_A;
+            4'hB : HEX1_D = `DISPLAY_b;
+            4'hC : HEX1_D = `DISPLAY_C;
+            4'hD : HEX1_D = `DISPLAY_d;
+            4'hE : HEX1_D = `DISPLAY_E;
+            4'hF : HEX1_D = `DISPLAY_F;
+            endcase 
+        end
+        2 : begin
+            HEX0_D = `DISPLAY_OFF;
+            HEX1_D = `DISPLAY_OFF;
+            HEX3_D = `DISPLAY_OFF;
+            case(num[3:0])
+            4'h0 : HEX2_D = `DISPLAY_0;
+            4'h1 : HEX2_D = `DISPLAY_1;
+            4'h2 : HEX2_D = `DISPLAY_2;
+            4'h3 : HEX2_D = `DISPLAY_3;
+            4'h4 : HEX2_D = `DISPLAY_4;
+            4'h5 : HEX2_D = `DISPLAY_5;
+            4'h6 : HEX2_D = `DISPLAY_6;
+            4'h7 : HEX2_D = `DISPLAY_7;
+            4'h8 : HEX2_D = `DISPLAY_8;
+            4'h9 : HEX2_D = `DISPLAY_9;
+            4'hA : HEX2_D = `DISPLAY_A;
+            4'hB : HEX2_D = `DISPLAY_b;
+            4'hC : HEX2_D = `DISPLAY_C;
+            4'hD : HEX2_D = `DISPLAY_d;
+            4'hE : HEX2_D = `DISPLAY_E;
+            4'hF : HEX2_D = `DISPLAY_F;
+            endcase 
+        end
+        3 : begin
+            HEX0_D = `DISPLAY_OFF;
+            HEX1_D = `DISPLAY_OFF;
+            HEX2_D = `DISPLAY_OFF;
+            case(num[3:0])
+            4'h0 : HEX3_D = `DISPLAY_0;
+            4'h1 : HEX3_D = `DISPLAY_1;
+            4'h2 : HEX3_D = `DISPLAY_2;
+            4'h3 : HEX3_D = `DISPLAY_3;
+            4'h4 : HEX3_D = `DISPLAY_4;
+            4'h5 : HEX3_D = `DISPLAY_5;
+            4'h6 : HEX3_D = `DISPLAY_6;
+            4'h7 : HEX3_D = `DISPLAY_7;
+            4'h8 : HEX3_D = `DISPLAY_8;
+            4'h9 : HEX3_D = `DISPLAY_9;
+            4'hA : HEX3_D = `DISPLAY_A;
+            4'hB : HEX3_D = `DISPLAY_b;
+            4'hC : HEX3_D = `DISPLAY_C;
+            4'hD : HEX3_D = `DISPLAY_d;
+            4'hE : HEX3_D = `DISPLAY_E;
+            4'hF : HEX3_D = `DISPLAY_F;
+            endcase 
+        end
+        endcase
+    end
+endmodule

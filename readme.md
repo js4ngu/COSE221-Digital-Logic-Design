@@ -1,6 +1,6 @@
 # COSE221 Digital logic design
 ## 환경
-* Altera DE0 board (Cyclone III EP3C16F484C6)
+  * Altera DE0 board (Cyclone III EP3C16F484C6)
 * QuatursII 
 
 ### Lab1
@@ -30,6 +30,9 @@
 * 잔돈      out : sw[4]
 * 동전은 2000원이 max
 
-
 ### Lab6
 * CLK count 이용하여 0.1초마다 LED shift
+* SW에 따라서 direction 바뀜
+
+### Lab7
+* 전자시계
