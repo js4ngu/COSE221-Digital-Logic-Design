@@ -4,11 +4,11 @@ K3
 cModel Technology
 Z0 dC:\File\Lec\undergraduate\COSE221-Digital-Logic-Design\Lab6\simulation\qsim
 vlab6
-Z1 !s100 4CS4U@=KJiO9:SM1Ra`eV2
-Z2 Igjm[o0]RBb2Df:z@2MLQ30
-Z3 VE8^FM9oNcZSaLaY?^Y6bP2
+Z1 !s100 1<9NNZk5F3nh^c[RAm>712
+Z2 I[EIhV5LmP2a?=UO2:3:NL3
+Z3 VTmaZlg>TVnFjDXz:_@h[P2
 Z4 dC:\File\Lec\undergraduate\COSE221-Digital-Logic-Design\Lab6\simulation\qsim
-Z5 w1674207476
+Z5 w1674708220
 Z6 8lab6.vo
 Z7 Flab6.vo
 L0 31
@@ -19,16 +19,16 @@ Z9 !s90 -work|work|lab6.vo|
 Z10 o-work work -O0
 !i10b 1
 !s85 0
-Z11 !s108 1674207476.826000
+Z11 !s108 1674708220.485000
 Z12 !s107 lab6.vo|
 !s101 -O0
 vlab6_vlg_check_tst
 !i10b 1
-Z13 !s100 a3FIc?:ndn5NSENZ2mUin3
-Z14 IT0<LHLJoeh0CO]mJV>f9H1
-Z15 VCOCDGTniGZf6I[9WP3IJ[0
+Z13 !s100 ?Fa`l5:3V[j3Z16e_33;`2
+Z14 I49NQ@LZk:o;Qh3O1E6JA73
+Z15 VjT]>0NlSJSlzUV6i_jEHJ3
 R4
-Z16 w1674207475
+Z16 w1674708219
 Z17 8Waveform.vwf.vt
 Z18 FWaveform.vwf.vt
 L0 59
@@ -36,7 +36,7 @@ R8
 r1
 !s85 0
 31
-Z19 !s108 1674207476.865000
+Z19 !s108 1674708220.526000
 Z20 !s107 Waveform.vwf.vt|
 Z21 !s90 -work|work|Waveform.vwf.vt|
 !s101 -O0
@@ -62,14 +62,14 @@ R21
 R10
 vlab6_vlg_vec_tst
 !i10b 1
-Z25 !s100 <ejT5KnooOe<MQWlJgXbL1
-Z26 I9T?Z^4l]nc1Qf>1ec2jf`3
-Z27 VYPUO_APT?6BBm`zTBfNYK0
+!s100 6Bz<0ddajL`4De<3TaC`k0
+IZi4NkEQ;9;TFLfdbSg4nH0
+Z25 VYPUO_APT?6BBm`zTBfNYK0
 R4
 R16
 R17
 R18
-Z28 L0 926
+Z26 L0 953
 R8
 r1
 !s85 0

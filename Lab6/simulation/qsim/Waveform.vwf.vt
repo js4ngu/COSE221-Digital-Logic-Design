@@ -18,7 +18,7 @@
 // the top level entity of the current Quartus project .The user can use this   
 // testbench to simulate his design using a third-party simulation tool .       
 // *****************************************************************************
-// Generated on "01/20/2023 18:37:55"
+// Generated on "01/26/2023 13:43:39"
                                                                         
 // Verilog Self-Checking Test Bench (with test vectors) for design :    lab6
 // 
@@ -59,36 +59,42 @@ endmodule
 module lab6_vlg_check_tst (
 	LEDG,
 	cnt,
-	flag,
+	preCLK,
+	presclaerFlag,
 	sampler_rx
 );
 input [9:0] LEDG;
 input [31:0] cnt;
-input  flag;
+input  preCLK;
+input  presclaerFlag;
 input sampler_rx;
 
 reg [9:0] LEDG_expected;
 reg [31:0] cnt_expected;
-reg  flag_expected;
+reg  preCLK_expected;
+reg  presclaerFlag_expected;
 
 reg [9:0] LEDG_prev;
 reg [31:0] cnt_prev;
-reg  flag_prev;
+reg  preCLK_prev;
+reg  presclaerFlag_prev;
 
 reg [9:0] LEDG_expected_prev;
 reg [31:0] cnt_expected_prev;
-reg  flag_expected_prev;
+reg  preCLK_expected_prev;
+reg  presclaerFlag_expected_prev;
 
 reg [9:0] last_LEDG_exp;
 reg [31:0] last_cnt_exp;
-reg  last_flag_exp;
+reg  last_preCLK_exp;
+reg  last_presclaerFlag_exp;
 
 reg trigger;
 
 integer i;
 integer nummismatches;
 
-reg [1:3] on_first_change ;
+reg [1:4] on_first_change ;
 
 
 initial
@@ -96,7 +102,7 @@ begin
 trigger = 0;
 i = 0;
 nummismatches = 0;
-on_first_change = 3'b1;
+on_first_change = 4'b1;
 end
 
 // update real /o prevs
@@ -105,7 +111,8 @@ always @(trigger)
 begin
 	LEDG_prev = LEDG;
 	cnt_prev = cnt;
-	flag_prev = flag;
+	preCLK_prev = preCLK;
+	presclaerFlag_prev = presclaerFlag;
 end
 
 // update expected /o prevs
@@ -114,59 +121,60 @@ always @(trigger)
 begin
 	LEDG_expected_prev = LEDG_expected;
 	cnt_expected_prev = cnt_expected;
-	flag_expected_prev = flag_expected;
+	preCLK_expected_prev = preCLK_expected;
+	presclaerFlag_expected_prev = presclaerFlag_expected;
 end
 
 
 // expected LEDG[ 9 ]
 initial
 begin
-	LEDG_expected[9] = 1'b0;
+	LEDG_expected[9] = 1'bX;
 end 
 // expected LEDG[ 8 ]
 initial
 begin
-	LEDG_expected[8] = 1'b0;
+	LEDG_expected[8] = 1'bX;
 end 
 // expected LEDG[ 7 ]
 initial
 begin
-	LEDG_expected[7] = 1'b0;
+	LEDG_expected[7] = 1'bX;
 end 
 // expected LEDG[ 6 ]
 initial
 begin
-	LEDG_expected[6] = 1'b0;
+	LEDG_expected[6] = 1'bX;
 end 
 // expected LEDG[ 5 ]
 initial
 begin
-	LEDG_expected[5] = 1'b0;
+	LEDG_expected[5] = 1'bX;
 end 
 // expected LEDG[ 4 ]
 initial
 begin
-	LEDG_expected[4] = 1'b0;
+	LEDG_expected[4] = 1'bX;
 end 
 // expected LEDG[ 3 ]
 initial
 begin
-	LEDG_expected[3] = 1'b0;
+	LEDG_expected[3] = 1'bX;
 end 
 // expected LEDG[ 2 ]
 initial
 begin
-	LEDG_expected[2] = 1'b0;
+	LEDG_expected[2] = 1'bX;
 end 
 // expected LEDG[ 1 ]
 initial
 begin
-	LEDG_expected[1] = 1'b0;
+	LEDG_expected[1] = 1'bX;
 end 
 // expected LEDG[ 0 ]
 initial
 begin
-	LEDG_expected[0] = 1'b0;
+	LEDG_expected[0] = 1'bX;
 end 
 // expected cnt[ 31 ]
 initial
@@ -329,13 +337,19 @@ begin
 	cnt_expected[0] = 1'bX;
 end 
 
-// expected flag
+// expected preCLK
 initial
 begin
-	flag_expected = 1'bX;
+	preCLK_expected = 1'bX;
+end 
+
+// expected presclaerFlag
+initial
+begin
+	presclaerFlag_expected = 1'bX;
 end 
 // generate trigger
-always @(LEDG_expected or LEDG or cnt_expected or cnt or flag_expected or flag)
+always @(LEDG_expected or LEDG or cnt_expected or cnt or preCLK_expected or preCLK or presclaerFlag_expected or presclaerFlag)
 begin
 	trigger <= ~trigger;
 end
@@ -345,8 +359,8 @@ begin
 `ifdef debug_tbench
 	$display("Scanning pattern %d @time = %t",i,$realtime );
 	i = i + 1;
-	$display("| expected LEDG = %b | expected cnt = %b | expected flag = %b | ",LEDG_expected_prev,cnt_expected_prev,flag_expected_prev);
-	$display("| real LEDG = %b | real cnt = %b | real flag = %b | ",LEDG_prev,cnt_prev,flag_prev);
+	$display("| expected LEDG = %b | expected cnt = %b | expected preCLK = %b | expected presclaerFlag = %b | ",LEDG_expected_prev,cnt_expected_prev,preCLK_expected_prev,presclaerFlag_expected_prev);
+	$display("| real LEDG = %b | real cnt = %b | real preCLK = %b | real presclaerFlag = %b | ",LEDG_prev,cnt_prev,preCLK_prev,presclaerFlag_prev);
 `endif
 	if (
 		( LEDG_expected_prev[0] !== 1'bx ) && ( LEDG_prev[0] !== LEDG_expected_prev[0] )
@@ -895,17 +909,30 @@ begin
 		last_cnt_exp[31] = cnt_expected_prev[31];
 	end
 	if (
-		( flag_expected_prev !== 1'bx ) && ( flag_prev !== flag_expected_prev )
-		&& ((flag_expected_prev !== last_flag_exp) ||
+		( preCLK_expected_prev !== 1'bx ) && ( preCLK_prev !== preCLK_expected_prev )
+		&& ((preCLK_expected_prev !== last_preCLK_exp) ||
 			on_first_change[3])
 	)
 	begin
-		$display ("ERROR! Vector Mismatch for output port flag :: @time = %t",  $realtime);
-		$display ("     Expected value = %b", flag_expected_prev);
-		$display ("     Real value = %b", flag_prev);
+		$display ("ERROR! Vector Mismatch for output port preCLK :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", preCLK_expected_prev);
+		$display ("     Real value = %b", preCLK_prev);
 		nummismatches = nummismatches + 1;
 		on_first_change[3] = 1'b0;
-		last_flag_exp = flag_expected_prev;
+		last_preCLK_exp = preCLK_expected_prev;
+	end
+	if (
+		( presclaerFlag_expected_prev !== 1'bx ) && ( presclaerFlag_prev !== presclaerFlag_expected_prev )
+		&& ((presclaerFlag_expected_prev !== last_presclaerFlag_exp) ||
+			on_first_change[4])
+	)
+	begin
+		$display ("ERROR! Vector Mismatch for output port presclaerFlag :: @time = %t",  $realtime);
+		$display ("     Expected value = %b", presclaerFlag_expected_prev);
+		$display ("     Real value = %b", presclaerFlag_prev);
+		nummismatches = nummismatches + 1;
+		on_first_change[4] = 1'b0;
+		last_presclaerFlag_exp = presclaerFlag_expected_prev;
 	end
 
 	trigger <= ~trigger;
@@ -931,7 +958,8 @@ reg [9:0] SW;
 // wires                                               
 wire [9:0] LEDG;
 wire [31:0] cnt;
-wire flag;
+wire preCLK;
+wire presclaerFlag;
 
 wire sampler;                             
 
@@ -942,7 +970,8 @@ lab6 i1 (
 	.LEDG(LEDG),
 	.SW(SW),
 	.cnt(cnt),
-	.flag(flag)
+	.preCLK(preCLK),
+	.presclaerFlag(presclaerFlag)
 );
 
 // CLOCK_50_2
@@ -955,7 +984,7 @@ end
 // SW[ 9 ]
 initial
 begin
-	SW[9] = 1'b0;
+	SW[9] = 1'b1;
 end 
 // SW[ 8 ]
 initial
@@ -1012,7 +1041,8 @@ lab6_vlg_sample_tst tb_sample (
 lab6_vlg_check_tst tb_out(
 	.LEDG(LEDG),
 	.cnt(cnt),
-	.flag(flag),
+	.preCLK(preCLK),
+	.presclaerFlag(presclaerFlag),
 	.sampler_rx(sampler)
 );
 endmodule

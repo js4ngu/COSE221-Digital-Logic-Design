@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab6
-Fri Jan 20 18:37:41 2023
+Thu Jan 26 13:46:04 2023
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -15,9 +15,11 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
   9. Inverted Register Statistics
- 10. Parameter Settings for User Entity Instance: Top-level Entity: |lab6
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: Top-level Entity: |lab6
+ 12. Port Connectivity Checks: "presclaer:i_presclaer"
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -43,16 +45,16 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jan 20 18:37:41 2023      ;
+; Analysis & Synthesis Status        ; Successful - Thu Jan 26 13:46:04 2023      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; lab6                                       ;
 ; Top-level Entity Name              ; lab6                                       ;
 ; Family                             ; Cyclone III                                ;
-; Total logic elements               ; 44                                         ;
-;     Total combinational functions  ; 44                                         ;
-;     Dedicated logic registers      ; 34                                         ;
-; Total registers                    ; 34                                         ;
-; Total pins                         ; 54                                         ;
+; Total logic elements               ; 74                                         ;
+;     Total combinational functions  ; 65                                         ;
+;     Dedicated logic registers      ; 64                                         ;
+; Total registers                    ; 64                                         ;
+; Total pins                         ; 55                                         ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0                                          ;
 ; Embedded Multiplier 9-bit elements ; 0                                          ;
@@ -158,13 +160,14 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                            ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                        ; Library ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
-; lab6.sv                          ; yes             ; User SystemVerilog HDL File  ; C:/File/Lec/undergraduate/COSE221-Digital-Logic-Design/Lab6/lab6.sv ;         ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                            ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
+; prescaler.v                      ; yes             ; User Verilog HDL File        ; C:/File/Lec/undergraduate/COSE221-Digital-Logic-Design/Lab6/prescaler.v ;         ;
+; lab6.sv                          ; yes             ; User SystemVerilog HDL File  ; C:/File/Lec/undergraduate/COSE221-Digital-Logic-Design/Lab6/lab6.sv     ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------+---------+
 
 
 +----------------------------------------------------------------+
@@ -172,38 +175,39 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+------------------+
 ; Resource                                    ; Usage            ;
 +---------------------------------------------+------------------+
-; Estimated Total logic elements              ; 44               ;
+; Estimated Total logic elements              ; 74               ;
 ;                                             ;                  ;
-; Total combinational functions               ; 44               ;
+; Total combinational functions               ; 65               ;
 ; Logic element usage by number of LUT inputs ;                  ;
-;     -- 4 input functions                    ; 9                ;
-;     -- 3 input functions                    ; 2                ;
-;     -- <=2 input functions                  ; 33               ;
+;     -- 4 input functions                    ; 8                ;
+;     -- 3 input functions                    ; 10               ;
+;     -- <=2 input functions                  ; 47               ;
 ;                                             ;                  ;
 ; Logic elements by mode                      ;                  ;
-;     -- normal mode                          ; 13               ;
+;     -- normal mode                          ; 34               ;
 ;     -- arithmetic mode                      ; 31               ;
 ;                                             ;                  ;
-; Total registers                             ; 34               ;
-;     -- Dedicated logic registers            ; 34               ;
+; Total registers                             ; 64               ;
+;     -- Dedicated logic registers            ; 64               ;
 ;     -- I/O registers                        ; 0                ;
 ;                                             ;                  ;
-; I/O pins                                    ; 54               ;
+; I/O pins                                    ; 55               ;
 ; Embedded Multiplier 9-bit elements          ; 0                ;
 ; Maximum fan-out node                        ; CLOCK_50_2~input ;
-; Maximum fan-out                             ; 34               ;
-; Total fan-out                               ; 294              ;
-; Average fan-out                             ; 1.58             ;
+; Maximum fan-out                             ; 64               ;
+; Total fan-out                               ; 423              ;
+; Average fan-out                             ; 1.77             ;
 +---------------------------------------------+------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |lab6                      ; 44 (44)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 54   ; 0            ; |lab6               ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                 ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name         ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------+--------------+
+; |lab6                      ; 65 (21)           ; 64 (30)      ; 0           ; 0            ; 0       ; 0         ; 55   ; 0            ; |lab6                       ; work         ;
+;    |presclaer:i_presclaer| ; 44 (44)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |lab6|presclaer:i_presclaer ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -212,12 +216,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 34    ;
+; Total registers                              ; 64    ;
 ; Number of registers using Synchronous Clear  ; 32    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 11    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -227,9 +231,18 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; out                                    ; 2       ;
+; regLED[0]                              ; 2       ;
 ; Total number of inverted registers = 1 ;         ;
 +----------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |lab6|presclaer:i_presclaer|cnt[19] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
 
 
 +----------------------------------------------------------------------+
@@ -238,9 +251,30 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Parameter Name ; Value    ; Type                                     ;
 +----------------+----------+------------------------------------------+
 ; target         ; 20000000 ; Signed Integer                           ;
-; targetTB       ; 20       ; Signed Integer                           ;
+; targetTB       ; 10       ; Signed Integer                           ;
 +----------------+----------+------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "presclaer:i_presclaer" ;
++----------------+-------+----------+---------------+
+; Port           ; Type  ; Severity ; Details       ;
++----------------+-------+----------+---------------+
+; target[21..20] ; Input ; Info     ; Stuck at VCC  ;
+; target[11..10] ; Input ; Info     ; Stuck at VCC  ;
+; target[31..25] ; Input ; Info     ; Stuck at GND  ;
+; target[23..22] ; Input ; Info     ; Stuck at GND  ;
+; target[19..17] ; Input ; Info     ; Stuck at GND  ;
+; target[15..14] ; Input ; Info     ; Stuck at GND  ;
+; target[7..0]   ; Input ; Info     ; Stuck at GND  ;
+; target[24]     ; Input ; Info     ; Stuck at VCC  ;
+; target[16]     ; Input ; Info     ; Stuck at VCC  ;
+; target[13]     ; Input ; Info     ; Stuck at VCC  ;
+; target[12]     ; Input ; Info     ; Stuck at GND  ;
+; target[9]      ; Input ; Info     ; Stuck at GND  ;
+; target[8]      ; Input ; Info     ; Stuck at VCC  ;
++----------------+-------+----------+---------------+
 
 
 +-------------------------------+
@@ -258,28 +292,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Fri Jan 20 18:37:40 2023
+    Info: Processing started: Thu Jan 26 13:46:03 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab6 -c lab6
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Warning (12019): Can't analyze file -- file clk_counter.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file barrel shifter.v
+    Info (12023): Found entity 1: barrel_shifter_10bit
+Info (12021): Found 1 design units, including 1 entities, in source file prescaler.v
+    Info (12023): Found entity 1: presclaer
 Info (12021): Found 1 design units, including 1 entities, in source file lab6.sv
     Info (12023): Found entity 1: lab6
 Info (12127): Elaborating entity "lab6" for the top level hierarchy
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDG[1]" is stuck at GND
-    Warning (13410): Pin "LEDG[2]" is stuck at GND
-    Warning (13410): Pin "LEDG[3]" is stuck at GND
-    Warning (13410): Pin "LEDG[4]" is stuck at GND
-    Warning (13410): Pin "LEDG[5]" is stuck at GND
-    Warning (13410): Pin "LEDG[6]" is stuck at GND
-    Warning (13410): Pin "LEDG[7]" is stuck at GND
-    Warning (13410): Pin "LEDG[8]" is stuck at GND
-    Warning (13410): Pin "LEDG[9]" is stuck at GND
+Info (12128): Elaborating entity "presclaer" for hierarchy "presclaer:i_presclaer"
+Warning (10036): Verilog HDL or VHDL warning at prescaler.v(9): object "prescalingCLK" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at prescaler.v(30): truncated value with size 32 to match size of target (1)
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 9 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[0]"
+Warning (21074): Design contains 8 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[1]"
     Warning (15610): No output dependent on input pin "SW[2]"
     Warning (15610): No output dependent on input pin "SW[3]"
@@ -288,13 +317,13 @@ Warning (21074): Design contains 9 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[6]"
     Warning (15610): No output dependent on input pin "SW[7]"
     Warning (15610): No output dependent on input pin "SW[8]"
-Info (21057): Implemented 98 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 129 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
-    Info (21059): Implemented 43 output pins
-    Info (21061): Implemented 44 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 22 warnings
-    Info: Peak virtual memory: 4620 megabytes
-    Info: Processing ended: Fri Jan 20 18:37:41 2023
+    Info (21059): Implemented 44 output pins
+    Info (21061): Implemented 74 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 12 warnings
+    Info: Peak virtual memory: 4624 megabytes
+    Info: Processing ended: Thu Jan 26 13:46:04 2023
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

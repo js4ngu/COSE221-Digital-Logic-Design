@@ -29,3 +29,7 @@
 * 커피 한잔 out : SW[3]
 * 잔돈      out : sw[4]
 * 동전은 2000원이 max
+
+
+### Lab6
+* CLK count 이용하여 0.1초마다 LED shift

@@ -5,7 +5,8 @@ entity lab6 is
         CLOCK_50_2      : in     vl_logic;
         SW              : in     vl_logic_vector(9 downto 0);
         cnt             : out    vl_logic_vector(31 downto 0);
-        flag            : out    vl_logic;
+        presclaerFlag   : out    vl_logic;
+        preCLK          : out    vl_logic;
         LEDG            : out    vl_logic_vector(9 downto 0)
     );
 end lab6;
